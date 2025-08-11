@@ -1,0 +1,83 @@
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #2d1b69 100%);
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.app-header {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1.5rem 2rem;
+  border-bottom: 3px solid #c9aa71;
+  backdrop-filter: blur(10px);
+
+  h1 {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-align: center;
+    color: #c9aa71;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    letter-spacing: 2px;
+  }
+
+  .subtitle {
+    margin: 0.5rem 0 0 0;
+    text-align: center;
+    color: #d4d4d4;
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.9;
+  }
+}
+
+.app-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 350px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+  border-right: 2px solid rgba(201, 170, 113, 0.3);
+  overflow-y: auto;
+  backdrop-filter: blur(5px);
+}
+
+.content {
+  flex: 1;
+  overflow: auto;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1rem;
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+    }
+  }
+
+  .app-main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-height: 250px;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}

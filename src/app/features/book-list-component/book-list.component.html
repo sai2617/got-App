@@ -1,0 +1,31 @@
+<div class="book-list-container">
+  <div class="section-header">
+    <h2>The Books</h2>
+    <div class="divider"></div>
+  </div>
+
+  <app-loading *ngIf="isLoading"></app-loading>
+
+  <div class="book-list" *ngIf="!isLoading">
+    <div
+      class="book-item"
+      [class.selected]="isSelected(book)"
+      *ngFor="let book of books$ | async; trackBy: trackByUrl"
+      (click)="selectBook(book)"
+    >
+      <div class="book-cover">
+        <div class="book-spine"></div>
+      </div>
+      <div class="book-info">
+        <h3 class="book-title">{{ book.name }}</h3>
+        <div class="book-meta">
+          <p class="author">by {{ book.authors }}</p>
+          <p class="details">
+            <span class="pages">{{ book.numberOfPages }} pages</span>
+            <span class="year">{{ book.released | date:'yyyy' }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

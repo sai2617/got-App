@@ -1,0 +1,126 @@
+<div
+  class="modal-backdrop"
+  *ngIf="isOpen && character"
+  (click)="onBackdropClick($event)"
+  tabindex="0"
+>
+  <div class="modal-content" [@slideIn]>
+    <header class="modal-header">
+      <div class="character-avatar-large">
+        {{ (character.name || 'Unknown').charAt(0).toUpperCase() }}
+      </div>
+      <div class="character-title-section">
+        <h2 class="character-name">
+          {{ character.name || 'Unnamed Character' }}
+        </h2>
+        <div class="character-status-badge">
+          <span class="status-indicator" [class.noble]="isCourtier(character)">
+            {{ isCourtier(character) ? 'Noble' : 'Commoner' }}
+          </span>
+        </div>
+      </div>
+      <button class="close-btn" (click)="closeModal()" aria-label="Close">
+        <span>&times;</span>
+      </button>
+    </header>
+
+    <div class="modal-body">
+      <div class="character-details">
+
+        <!-- Basic Information -->
+        <section class="detail-section" *ngIf="character.gender || character.culture || character.born">
+          <h3><span class="section-icon">ℹ️</span>Basic Information</h3>
+          <div class="detail-grid">
+            <div class="detail-item" *ngIf="character.gender">
+              <label>Gender</label>
+              <span>{{ character.gender }}</span>
+            </div>
+            <div class="detail-item" *ngIf="character.culture">
+              <label>Culture</label>
+              <span>{{ character.culture }}</span>
+            </div>
+            <div class="detail-item" *ngIf="character.born">
+              <label>Born</label>
+              <span>{{ character.born }}</span>
+            </div>
+            <div class="detail-item" *ngIf="character.died">
+              <label>Died</label>
+              <span>{{ character.died }}</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Titles and Honors -->
+        <section class="detail-section" *ngIf="character.titles.length > 0">
+          <h3><span class="section-icon">👑</span>Titles & Honors</h3>
+          <div class="tags-container">
+            <span class="tag title-tag" *ngFor="let title of character.titles">
+              {{ title }}
+            </span>
+          </div>
+        </section>
+
+        <!-- Aliases -->
+        <section class="detail-section" *ngIf="character.aliases.length > 0 && character.aliases[0] !== ''">
+          <h3><span class="section-icon">🎭</span>Known As</h3>
+          <div class="tags-container">
+            <span class="tag alias-tag" *ngFor="let alias of character.aliases">
+              {{ alias }}
+            </span>
+          </div>
+        </section>
+
+        <!-- Family Tree -->
+        <section class="detail-section" *ngIf="hasGenealogyInfo(character)">
+          <h3><span class="section-icon">🌳</span>Family Tree</h3>
+          <app-loading *ngIf="isLoading"></app-loading>
+          <div class="family-tree">
+            <div class="family-member" *ngIf="fatherName">
+              <div class="relation-label">Father</div>
+              <div class="member-name">{{ fatherName }}</div>
+            </div>
+            <div class="family-member" *ngIf="motherName">
+              <div class="relation-label">Mother</div>
+              <div class="member-name">{{ motherName }}</div>
+            </div>
+            <div class="family-member" *ngIf="spouseName">
+              <div class="relation-label">Spouse</div>
+              <div class="member-name">{{ spouseName }}</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- House Allegiances -->
+        <section class="detail-section" *ngIf="character.allegiances.length > 0">
+          <h3><span class="section-icon">🏰</span>House Allegiances</h3>
+          <div class="tags-container">
+            <span class="tag house-tag" *ngFor="let house of character.allegiances">
+              {{ getHouseName(house) }}
+            </span>
+          </div>
+        </section>
+
+        <!-- TV Series -->
+        <section class="detail-section" *ngIf="character.tvSeries.length > 0 && character.tvSeries[0] !== ''">
+          <h3><span class="section-icon">📺</span>TV Appearances</h3>
+          <div class="tags-container">
+            <span class="tag tv-tag" *ngFor="let season of character.tvSeries">
+              {{ season }}
+            </span>
+          </div>
+        </section>
+
+        <!-- Portrayed By -->
+        <section class="detail-section" *ngIf="character.playedBy.length > 0 && character.playedBy[0] !== ''">
+          <h3><span class="section-icon">🎬</span>Portrayed By</h3>
+          <div class="tags-container">
+            <span class="tag actor-tag" *ngFor="let actor of character.playedBy">
+              {{ actor }}
+            </span>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</div>
