@@ -10,7 +10,7 @@
     <div
       class="book-item"
       [class.selected]="isSelected(book)"
-      *ngFor="let book of books$ | async; trackBy: trackByUrl"
+      *ngFor="let book of books$ | async"
       (click)="selectBook(book)"
     >
       <div class="book-cover">

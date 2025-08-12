@@ -45,8 +45,4 @@ export class BookListComponent implements OnInit {
   isSelected(book: Book): boolean {
     return this.selectedBook?.url === book.url;
   }
-
-  trackByUrl(index: number, book: Book): string {
-    return book.url;
-  }
 }

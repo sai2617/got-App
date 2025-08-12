@@ -12,11 +12,11 @@
     <header class="book-header">
       <div class="book-cover-large">
         <div class="cover-spine"></div>
-        <div class="cover-title">{{ selectedBook.name.split(' ').slice(0, 2).join(' ') }}</div>
+        <div class="cover-title">{{ selectedBook.name}}</div>
       </div>
       <div class="book-title-section">
         <h1 class="book-title">{{ selectedBook.name }}</h1>
-        <p class="book-author">by {{ selectedBook.authors.join(', ') }}</p>
+        <p class="book-author">by {{ selectedBook.authors}}</p>
       </div>
     </header>
 
@@ -68,7 +68,7 @@
       <div *ngIf="!isLoadingCharacters && characters.length > 0" class="characters-grid">
         <div
           class="character-card"
-          *ngFor="let character of characters; trackBy: trackByUrl"
+          *ngFor="let character of characters"
           (click)="openCharacterModal(character)"
         >
           <div class="character-avatar">
@@ -78,7 +78,7 @@
           </div>
           <div class="character-info">
             <h3 class="character-name">
-              {{ character.name || 'Unnamed Character' }}
+              {{ character.name || 'Unknown Name' }}
             </h3>
             <div class="character-details">
               <span *ngIf="character.titles.length > 0" class="character-title">
@@ -100,7 +100,7 @@
       <div *ngIf="!isLoadingCharacters && characters.length === 0" class="no-characters">
         <div class="empty-state">
           <div class="empty-icon">👥</div>
-          <p>No character information available for this tome.</p>
+          <p>No character information available for this.</p>
         </div>
       </div>
     </section>

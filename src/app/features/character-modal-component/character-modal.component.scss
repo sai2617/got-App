@@ -180,6 +180,13 @@
     font-size: 1rem;
     font-weight: 500;
   }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(201, 170, 113, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .tags-container {
@@ -247,30 +254,5 @@
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .modal-content {
-    margin: 0.5rem;
-    max-width: none;
-  }
-
-  .modal-header {
-    padding: 1.5rem;
-    flex-direction: column;
-    text-align: center;
-
-    .character-title-section .character-name {
-      font-size: 1.4rem;
-    }
-  }
-
-  .modal-body {
-    padding: 1.5rem;
-  }
-
-  .detail-grid, .family-tree {
-    grid-template-columns: 1fr;
   }
 }

@@ -22,7 +22,6 @@ export class CharacterService {
       return of([]);
     }
 
-    const limitedUrls = urls.slice(0, 40);
     const requests = urls.map(url => this.getCharacter(url));
 
     return forkJoin(requests).pipe(

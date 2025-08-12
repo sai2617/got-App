@@ -61,8 +61,4 @@ export class BookDetailComponent implements OnInit {
     });
     window.dispatchEvent(event);
   }
-
-  trackByUrl(index: number, character: Character): string {
-    return character.url;
-  }
 }
