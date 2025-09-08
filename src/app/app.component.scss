@@ -81,3 +81,23 @@
     padding: 1rem;
   }
 }
+
+.music-controls {
+  margin-top: 10px;
+  text-align: center;
+
+  .music-btn {
+    background: #8B4513;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+
+    &:hover {
+      background: #A0522D;
+    }
+  }
+}

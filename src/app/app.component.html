@@ -2,6 +2,13 @@
   <header class="app-header">
     <h1>{{ title }}</h1>
     <p class="subtitle">Explore the epic fantasy series by George R.R. Martin</p>
+
+    <h1> Enjoy the music while exploring</h1>
+    <div class="music-controls">
+      <button (click)="playBackgroundMusic()" class="music-btn">
+        {{ isPlaying ? '⏸️ Pause' : '🎵 Play Theme' }}
+      </button>
+    </div>
   </header>
 
   <main class="app-main">
