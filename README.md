@@ -1,6 +1,6 @@
 # GotBookApp
 
-Getting info related to A Song of Ice and Fire Books completely (Angular app) frontend, backend was by publicly available api which is https://anapioficeandfire.com/
+Getting info related to A Song of Ice and Fire Books completely (Angular app), frontend, backend was by a publicly available api which is https://anapioficeandfire.com/
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
 
